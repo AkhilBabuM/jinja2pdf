@@ -1,0 +1,19 @@
+{
+  "name": "jinja2pdf",
+  "version": "1.0.0",
+  "description": "Generates PDFs from HTML templates and JSON data using Jinja2 and pdfkit.",
+  "main": "jinja2pdf.py",
+  "scripts": {
+    "test": "python3 jinja2pdf.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkhilBabuM/jinja2pdf.git"
+  },
+  "author": "Akhil Babu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkhilBabuM/jinja2pdf/issues"
+  },
+  "homepage": "https://github.com/AkhilBabuM/jinja2pdf#readme"
+}
