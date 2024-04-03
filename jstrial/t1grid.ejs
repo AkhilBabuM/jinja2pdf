@@ -22,7 +22,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    /* .grid-container-2 {
+    .grid-container-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 25px;
@@ -31,7 +31,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       column-gap: 20px;
-    } */
+    }
 
     header,
     footer {
@@ -106,32 +106,32 @@
         <div class="grid-container-2">
           <div class="input-group">
             <label for="full-name">Full Name</label>
-            <input type="text" id="full-name" name="full_name" value="{{ applicant.full_name }}"
+            <input type="text" id="full-name" name="full_name" value="<%= applicant.full_name %>"
               placeholder="Enter your full name" />
           </div>
 
           <div class="input-group">
             <label for="dob">Date of Birth</label>
-            <input type="text" id="dob" name="dob" value="{{ applicant.dob }}" />
+            <input type="text" id="dob" name="dob" value="<%= applicant.dob %>" />
           </div>
           <div class="input-group" style="grid-column: span 2">
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" value="{{ applicant.address }}" />
+            <input type="text" id="address" name="address" value="<%= applicant.address %>" />
           </div>
         </div>
       </fieldset>
 
       <fieldset>
-        <legend>Personal Details</legend>
+        <legend>Contact Information</legend>
         <div class="grid-container-2">
           <div class="input-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="{{ applicant.email }}" placeholder="Enter your email" />
+            <input type="email" id="email" name="email" value="<%= applicant.email %>" placeholder="Enter your email" />
           </div>
 
           <div class="input-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" value="{{ applicant.phone }}"
+            <input type="tel" id="phone" name="phone" value="<%= applicant.phone %>"
               placeholder="Enter your phone number" />
           </div>
         </div>
@@ -141,28 +141,18 @@
         <fieldset>
           <legend>Services</legend>
           <div class="grid-container-3">
-            <label><input type="checkbox" name="services" value="savings" {% if 'savings' in applicant.services
-                %}checked{% endif %}> Savings
-              Account</label>
-            <label><input type="checkbox" name="services" value="checking" {% if 'checking' in applicant.services
-                %}checked{% endif %}> Checking
-              Account</label>
-            <label><input type="checkbox" name="services" value="credit" {% if 'credit' in applicant.services
-                %}checked{% endif %}> Credit Card
-              Services</label>
-            <label><input type="checkbox" name="services" value="loan" {% if 'loan' in applicant.services %}checked{%
-                endif %}> Loan
-              Services</label>
-            <label><input type="checkbox" name="services" value="investment" {% if 'investment' in applicant.services
-                %}checked{% endif %}>
-              Investment Services</label>
+            <label><input type="checkbox" name="services" value="savings" <% if (applicant.services.includes('savings')) { %>checked<% } %>> Savings Account</label>
+            <label><input type="checkbox" name="services" value="checking" <% if (applicant.services.includes('checking')) { %>checked<% } %>> Checking Account</label>
+            <label><input type="checkbox" name="services" value="credit" <% if (applicant.services.includes('credit')) { %>checked<% } %>> Credit Card Services</label>
+            <label><input type="checkbox" name="services" value="loan" <% if (applicant.services.includes('loan')) { %>checked<% } %>> Loan Services</label>
+            <label><input type="checkbox" name="services" value="investment" <% if (applicant.services.includes('investment')) { %>checked<% } %>> Investment Services</label>
           </div>
         </fieldset>
       </div>
     </form>
   </div>
 
-  <footer>&copy; {{ form_year }} HDFC. All rights reserved.</footer>
+  <footer>&copy; <%= form_year %> HDFC. All rights reserved.</footer>
 </body>
 
 </html>

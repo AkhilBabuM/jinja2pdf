@@ -1,0 +1,15 @@
+{
+  "name": "jstrial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ejstopdf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "puppeteer": "^22.6.2"
+  }
+}

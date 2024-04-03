@@ -1,0 +1,26 @@
+[
+  {
+    "form_id": "abc123",
+    "form_year": 2024,
+    "applicant": {
+      "full_name": "John Doe",
+      "dob": "1980-05-15",
+      "address": "Kerala, India, Earth, Solar System, Milky Way, Virgo Cluster",
+      "email": "john.doe@example.com",
+      "phone": "555-1234",
+      "services": ["savings", "loan"]
+    }
+  },
+  {
+    "form_id": "xyz789",
+    "form_year": 2024,
+    "applicant": {
+      "full_name": "Jane Smith",
+      "dob": "1985-08-25",
+      "address": "Kerala, India, Earth, Solar System, Milky Way, Virgo Cluster",
+      "email": "jane.smith@example.com",
+      "phone": "555-5678",
+      "services": ["checking", "credit", "investment"]
+    }
+  }
+]
