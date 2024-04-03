@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HDFC Application Form</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .grid-container-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 25px;
+    }
+    .grid-container-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 20px;
+    }
+
+    header,
+    footer {
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #0073aa;
+    }
+
+    footer {
+      font-size: 0.85em;
+      color: #555;
+      background: #eaeaea;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .input-group {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .input-group input,
+    .input-group select {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 2px solid rgb(179, 179, 179);
+      font-size: 16px;
+      color: #333;
+    }
+
+    fieldset {
+      border: 2px solid rgb(179, 179, 179);
+      border-radius: 4px;
+      margin: 25px 0px;
+      padding-top: 10px;
+    }
+
+    legend {
+      font-style: italic;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+    }
+
+    label input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>HDFC Application Form</h1>
+  </header>
+  <div class="form-container">
+    <form>
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div class="grid-container-2">
+          <div class="input-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full_name" value="Jane Smith"
+              placeholder="Enter your full name" />
+          </div>
+
+          <div class="input-group">
+            <label for="dob">Date of Birth</label>
+            <input type="text" id="dob" name="dob" value="1985-08-25" />
+          </div>
+          <div class="input-group" style="grid-column: span 2">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" value="Kerala, India, Earth, Solar System, Milky Way, Virgo Cluster" />
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div class="grid-container-2">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="jane.smith@example.com" placeholder="Enter your email" />
+          </div>
+
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" value="555-5678"
+              placeholder="Enter your phone number" />
+          </div>
+        </div>
+      </fieldset>
+
+      <div>
+        <fieldset>
+          <legend>Servicess</legend>
+          <div class="grid-container-3">
+            <label><input type="checkbox" name="services" value="savings" > Savings
+              Account</label>
+            <label><input type="checkbox" name="services" value="checking" checked> Checking
+              Account</label>
+            <label><input type="checkbox" name="services" value="credit" checked> Credit Card
+              Services</label>
+            <label><input type="checkbox" name="services" value="loan" > Loan
+              Services</label>
+            <label><input type="checkbox" name="services" value="investment" checked>
+              Investment Services</label>
+          </div>
+        </fieldset>
+      </div>
+    </form>
+  </div>
+
+  <footer>&copy; 2024 HDFC. All rights reserved.</footer>
+</body>
+
+</html>
