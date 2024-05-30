@@ -1,7 +1,7 @@
 import os
-from playwright.sync_api import sync_playwright
 import zipfile
 import shutil
+from playwright.sync_api import sync_playwright
 
 zip_file = 'Archive_min.zip'
 extract_directory = 'temp'
