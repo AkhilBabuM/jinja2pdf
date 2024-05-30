@@ -1,6 +1,7 @@
 import zipfile
 import json
 import asyncio
+import time
 from pathlib import Path
 from playwright.async_api import async_playwright
 
@@ -27,7 +28,7 @@ async def main():
         browser = await p.chromium.launch()
         page = await browser.new_page()
         await page.set_content(html_content)
-        await page.wait_for_load_state("networkidle")
+        time.sleep(3)
         await page.pdf(path='rendered_form.pdf')
         await browser.close()
 
