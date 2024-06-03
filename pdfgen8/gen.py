@@ -2,8 +2,9 @@ import os
 import zipfile
 import shutil
 from playwright.sync_api import sync_playwright
+import time
 
-zip_file = 'Archive_min.zip'
+zip_file = 'Archive_inline.zip'
 extract_directory = 'temp'
 page_html = 'index.html'
 pdf_name = 'form_output.pdf'
@@ -40,7 +41,7 @@ def generate_pdf():
         index_html_url = f'file://{index_html_path}'
         page.goto(index_html_url)
         print('Rendering webpage')
-        # time.sleep(0.5)
+        time.sleep(5)
         page.wait_for_load_state('networkidle')
         print('Rendering pdf')
         page.pdf(path=f'renders/{pdf_name}')
