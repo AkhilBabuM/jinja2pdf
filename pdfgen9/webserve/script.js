@@ -49,6 +49,9 @@ function renderHTML() {
   const formDataPath = `${subid}/form_data.json`;
   const formSubmitDataPath = `${subid}/form_submit_data.json`;
 
+  console.log(formDataPath);
+  console.log(formSubmitDataPath);
+
   fetch(formDataPath)
     .then((response) => response.json())
     .then((data) => {

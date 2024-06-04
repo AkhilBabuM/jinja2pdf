@@ -16,8 +16,8 @@ def generate_pdf(
     form: str = Header(...),
     subid: str = Header(...)
 ):
-    print(f"Headers: org={org}, form={form}, subid={subid}")
-    print(f"Files: form_data={form_data.filename}, form_submit_data={form_submit_data.filename}")
+    print(f"\nHeaders: org={org}, form={form}, subid={subid}\n")
+    print(f"Files: form_data={form_data.filename}, form_submit_data={form_submit_data.filename}\n")
     
     # temp_dir = 'temp'
     render_dir = 'renders'
@@ -26,24 +26,24 @@ def generate_pdf(
 
     subid_dir = os.path.join(webservedir, subid)
 
-    form_data_path = os.path.join(subid_dir, form_data.filename)
-    form_submit_data_path = os.path.join(subid_dir, form_submit_data.filename)
+    form_data_path = os.path.join(subid_dir, 'form_data.json')
+    form_submit_data_path = os.path.join(subid_dir, 'form_submit_data.json')
 
     try:
         if not os.path.exists(subid_dir):
             os.makedirs(subid_dir)
-
-        print(f"created directories{subid_dir}")
-
-        # Save uploaded files to disk
-        with open(form_data_path, 'wb') as f:
-            shutil.copyfileobj(form_data.file, f)
-        with open(form_submit_data_path, 'wb') as f:
-            shutil.copyfileobj(form_submit_data.file, f)
+            print(f"Directory {subid_dir} created")
+            with open(form_data_path, 'wb') as f:
+                shutil.copyfileobj(form_data.file, f)
+            with open(form_submit_data_path, 'wb') as f:
+                shutil.copyfileobj(form_submit_data.file, f)
+        else: 
+            print("Directory already exists")
 
 
         index_html_url = f'http://127.0.0.1:5501/pdfgen9api/webserve/index.html?org={org}&form={form}&subid={subid}'
-        print(index_html_url)
+        print(f'\n{index_html_url}\n')
+
 
         with sync_playwright() as p:
             browser = p.chromium.launch(headless=True, args=["--disable-web-security"])
@@ -62,6 +62,6 @@ def generate_pdf(
     finally:
         if False and os.path.exists(temp_dir):
             shutil.rmtree(temp_dir)
-        print("PDF Saved and sent")
+        print("PDF Saved and sent\n")
 
 # uvicorn app:app --host 0.0.0.0 --port 8000
