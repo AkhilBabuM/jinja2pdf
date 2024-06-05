@@ -15,20 +15,20 @@ function createInputField(fieldData) {
   let input;
   switch (fieldData.fieldtype) {
     case "Data":
-      input = `<input type="text" name="${fieldData.fieldname}" />`;
+      input = `<input class="form-control" type="text" name="${fieldData.fieldname}" />`;
       break;
     case "Int":
-      input = `<input type="number" name="${fieldData.fieldname}" />`;
+      input = `<input class="form-control" type="number" name="${fieldData.fieldname}" />`;
       break;
     case "Select":
       const options = fieldData.options
         .split("\n")
         .map((option) => `<option value="${option}">${option}</option>`)
         .join("");
-      input = `<select name="${fieldData.fieldname}">${options}</select>`;
+      input = `<select class="form-select" name="${fieldData.fieldname}">${options}</select>`;
       break;
     case "Text":
-      input = `<textarea name="${fieldData.fieldname}"></textarea>`;
+      input = `<textarea class="form-control" name="${fieldData.fieldname}"></textarea>`;
       break;
     default:
       input = `<input type="text" name="${fieldData.fieldname}" />`;
@@ -65,8 +65,8 @@ function renderHTML() {
 
         if (fieldData.fieldtype === "Section Break") {
           currentSection = document.createElement("div");
-          currentSection.className = "section";
-          currentSection.innerHTML = `<h2>${fieldData.label}</h2>`;
+          currentSection.className = "section rounded bg-secondary my-5 pt-4 pb-5 px-3 row row-cols-2";
+          currentSection.innerHTML = `<h2 class="col-12">${fieldData.label}</h2>`;
           contentDiv.appendChild(currentSection);
           currentColumn = null;
         } else if (fieldData.fieldtype === "Column Break") {
@@ -75,8 +75,8 @@ function renderHTML() {
           currentSection.appendChild(currentColumn);
         } else {
           const fieldElement = document.createElement("div");
-          fieldElement.className = "field";
-          fieldElement.innerHTML = `<label>${
+          fieldElement.className = "field col my-3";
+          fieldElement.innerHTML = `<label class="mb-1">${
             fieldData.label
           }</label>: <br/> ${createInputField(fieldData)}`;
 
@@ -89,6 +89,8 @@ function renderHTML() {
           }
         }
       });
+
+      
 
       fetch(formSubmitDataPath)
         .then((response) => response.json())

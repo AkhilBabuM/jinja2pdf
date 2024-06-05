@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AkhilBabuM/jinja2pdf/issues"
   },
-  "homepage": "https://github.com/AkhilBabuM/jinja2pdf#readme"
+  "homepage": "https://github.com/AkhilBabuM/jinja2pdf#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  }
 }

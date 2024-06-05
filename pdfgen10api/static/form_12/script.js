@@ -2,14 +2,12 @@
 function getQueryParams() {
   const urlParams = new URLSearchParams(window.location.search);
   return {
-    org: urlParams.get("org"),
     form: urlParams.get("form"),
     subid: urlParams.get("subid"),
   };
 }
 
-// http://localhost:8000/index.html?org=myorg&form=myform&subid=12345
-// http://127.0.0.1:5501/pdfgen9/webserve/index.html?org=myorg&form=myform&subid=12345
+// http://127.0.0.1:8000/static/form_12/index.html?subid=12346
 
 function createInputField(fieldData) {
   let input;
@@ -38,9 +36,9 @@ function createInputField(fieldData) {
 
 // Main function to render HTML from JSON data
 function renderHTML() {
-  const { org, form, subid } = getQueryParams();
+  const { subid } = getQueryParams();
 
-  if (!org || !form || !subid) {
+  if (!subid) {
     console.error("Missing URL parameters");
     return;
   }
