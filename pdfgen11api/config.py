@@ -1,11 +1,9 @@
-# config.py
-
-# Port number
 PORT_NUMBER = '8000'
 
 # Directory names
-RENDER_DIR = 'renders'
-STATIC_DIR = 'static'
+RENDER_DIRECTORY = 'renders'
+STATIC_DIRECTORY = 'static'
+DATA_DIRECTORY = 'data'
 
 # Base URL for the static files
 def get_index_html_url(port_number, form_uri, record_id):
