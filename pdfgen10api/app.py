@@ -29,8 +29,6 @@ def generate_pdf(
 
     form_data_path = os.path.join(subid_dir, 'form_data.json')
     form_submit_data_path = os.path.join(subid_dir, 'form_submit_data.json')
-    # form_data_path = os.path.join(staticdir, form, subid_dir, 'form_data.json')
-    # form_submit_data_path = os.path.join(staticdir, form, subid_dir, 'form_submit_data.json')
 
     print(f"form data path {form_data_path}")
     print(f"form submit data path {form_submit_data_path}")
