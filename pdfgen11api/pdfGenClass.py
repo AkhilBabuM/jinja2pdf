@@ -1,6 +1,7 @@
 import os
 import shutil
-from fastapi import FastAPI, UploadFile, File, Query, HTTPException
+import json
+from fastapi import FastAPI, UploadFile, File, Form, Query, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from playwright.async_api import async_playwright
@@ -28,11 +29,11 @@ class PDFGenerator:
             print(f"Directory {path} exists")
 
     @staticmethod
-    def _save_data_file(upload_file: UploadFile, destination: str):
-        # Save the uploaded file to the specified destination.
+    def _save_data_file(json_data: str, destination: str):
+        # Save the JSON string to the specified destination as a JSON file.
         try:
-            with open(destination, "wb") as f:
-                shutil.copyfileobj(upload_file.file, f)
+            with open(destination, "w") as f:
+                json.dump(json.loads(json_data), f)
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Error saving file: {e}")
 
@@ -53,7 +54,7 @@ class PDFGenerator:
     def generate_pdf_endpoint(self):
         @self.app.post("/generate_pdf")
         async def generate_pdf_endpoint(
-            form_submit_data: UploadFile = File(...),
+            form_submit_data: str = Form(...),
             form_uri: str = Query(...),
             record_id: str = Query(...),
         ):
@@ -61,7 +62,7 @@ class PDFGenerator:
             Generate a PDF from the submitted form data and HTML template selected using form_uri.
 
             INPUT:
-            - form_submit_data: JSON file with form submission data
+            - form_submit_data: JSON string with form submission data
             - form_uri: URI of the form template
             - record_id: Record submission ID for retrieving data and naming the output files.
 
